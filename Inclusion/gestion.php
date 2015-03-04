@@ -21,7 +21,7 @@ echo'
 				if(isset($_SESSION['login']))
 				{
 					echo'<li><a class="" href="compte.php">Mon Compte</a></li>
-					<li><a class="" href="deconnexion.php">Deconnexion</a></li>';
+					<li><a class="" href="deconexion.php">Deconnexion</a></li>';
 				}
 				else
 				{

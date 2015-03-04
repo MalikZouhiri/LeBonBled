@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,10 +23,10 @@
 			}
         </style>
     </head>
-    
+
     
     <body  >      
-<?php include("Inclusion/gestion.php"); ?>
+<?php include("Inclusion/gestion.php");?>
 <div class="container">
     <div class="text-center">
          <h1 class="">Bienvenue sur Le Bon Bled </h1>
