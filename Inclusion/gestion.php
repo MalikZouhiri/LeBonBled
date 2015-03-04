@@ -17,11 +17,18 @@ echo'
                 <li><a class="" href="recherche.php">Recherche</a>
                 </li>
                 <li><a class="" href="publier.php">Publier une annonce</a>
-                </li>
-                <li><a class="" href="inscription.php">Inscription</a>
-                </li>
-                <li><a class="" href="connexion.php">Connexion</a>
-                </li>
+                </li>';
+				if(isset($_SESSION['login']))
+				{
+					echo'<li><a class="" href="compte.php">Mon Compte</a></li>
+					<li><a class="" href="deconnexion.php">Deconnexion</a></li>';
+				}
+				else
+				{
+				    echo'<li><a class="" href="inscription.php">Inscription</a></li>
+					<li><a class="" href="connexion.php">Connexion</a></li>';
+				}
+			echo'
             </ul>
         </div>
         <!--/.nav-collapse -->

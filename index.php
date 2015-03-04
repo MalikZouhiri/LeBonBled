@@ -17,7 +17,31 @@
         <link rel="apple-touch-icon" sizes="114x114" href="/bootstrap/img/apple-touch-icon-114x114.png">
         
         <style type="text/css">
-            body {  padding-top: 50px;}
+            body {  padding-top: 50px;
+			margin-bottom: 60px;
+			}
+			.footer {
+			  position: absolute;
+			  bottom: 0;
+			  width: 100%;
+			  height: 60px;
+			  background-color: #000000;
+			}
+			body > .container {
+			  padding: 60px 15px 0;
+			}
+			.container .text-muted {
+			  margin: 20px 0;
+			}
+
+			.footer > .container {
+			  padding-right: 15px;
+			  padding-left: 15px;
+			}
+
+			code {
+			  font-size: 80%;
+			}
         </style>
     </head>
     
@@ -39,6 +63,6 @@
 
 
 <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
-        
+ <?php include("Inclusion/footer.php"); ?>          
     </body>
 </html>
