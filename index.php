@@ -7,6 +7,7 @@
         <meta name="generator" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+		<link href="Inclusion/footer.css" rel="stylesheet">
         
         <!--[if lt IE 9]>
           <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -18,29 +19,6 @@
         
         <style type="text/css">
             body {  padding-top: 50px;
-			margin-bottom: 60px;
-			}
-			.footer {
-			  position: absolute;
-			  bottom: 0;
-			  width: 100%;
-			  height: 60px;
-			  background-color: #000000;
-			}
-			body > .container {
-			  padding: 60px 15px 0;
-			}
-			.container .text-muted {
-			  margin: 20px 0;
-			}
-
-			.footer > .container {
-			  padding-right: 15px;
-			  padding-left: 15px;
-			}
-
-			code {
-			  font-size: 80%;
 			}
         </style>
     </head>
