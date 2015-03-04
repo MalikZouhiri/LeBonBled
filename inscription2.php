@@ -86,7 +86,7 @@
 			    		<h3 class="panel-title">Inscrivez vous sur LeBonBled <small> C'est gratuit !</small></h3>
 			 			</div>
 			 			<div class="panel-body">
-			    		<form action="" methode="POST">
+			    		<form action="" method="POST">
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
@@ -137,16 +137,16 @@
 		
 		<?php
 			//TRAITEMENT INSCRIPTION
-			if(1)
+			if(isset($_POST['login']) && isset($_POST['password']) && isset($_POST['tel']) && isset($_POST['mail']) && isset($_POST['password_2']))
 			{
 				if(!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['tel']) && !empty($_POST['mail']))
 				{
 					include("configuration.php");
-					$mdp1=$_POST['password'];
-					$mdp2=$_POST['password_2'];
+					$mdp1=$_POST["password"];
+					$mdp2=$_POST["password_2"];
 					if($mdp1!=$mdp2)
 					{
-						echo "<p style='color:red;'>Les deux mots de passe doivent être identiques";
+						echo "<center><p style='color:red;'>Les deux mots de passe doivent être identiques</center>";
 					}
 					else
 					{
@@ -155,12 +155,12 @@
 					$sql="INSERT INTO utilisateurs(nom,tel,password,mail) VALUE('{$_POST['login']}','{$_POST['tel']}','{$password_md5}','{$_POST['mail']}')";
 					$requete=mysqli_query($connexion,$sql) or die("Ay problème requète!"+ mysql_error());
 					$i=0;
-					echo "Merci de votre inscription ".$_POST['login'];
+					echo "<center>Merci de votre inscription ".$_POST['login']."</center>";
 					}
 				}
 				else
 				{
-					echo "<p style='color:red;'>Tout les champs doivent être saisis";
+					echo "<center><p style='color:red;'>Tout les champs doivent être saisis.</center>";
 				}
 			}
 			else
