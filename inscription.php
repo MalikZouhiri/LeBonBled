@@ -168,5 +168,6 @@
 				echo "Ay problème !!!!!";
 			}
 		?>
+	 <?php include("Inclusion/footer.php"); ?>   
 	</body>
 </html>
