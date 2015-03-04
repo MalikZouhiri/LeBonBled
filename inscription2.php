@@ -86,7 +86,7 @@
 			    		<h3 class="panel-title">Inscrivez vous sur LeBonBled <small> C'est gratuit !</small></h3>
 			 			</div>
 			 			<div class="panel-body">
-			    		<form role="form">
+			    		<form action="" methode="POST">
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
@@ -101,7 +101,7 @@
 			    			</div>
 
 			    			<div class="form-group">
-			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Adresse email"/>
+			    				<input type="email" name="mail" id="mail" class="form-control input-sm" placeholder="Adresse email"/>
 			    			</div>
 
 			    			<div class="row">
@@ -117,7 +117,7 @@
 			    				</div>
 			    			</div>
 			    			
-			    			<input type="submit" value="Register" class="btn btn-info btn-block"/>
+			    			<input type="submit" value="S'inscrire" class="btn btn-info btn-block"/>
 			    		
 			    		</form>
 			    	</div>
@@ -137,17 +137,26 @@
 		
 		<?php
 			//TRAITEMENT INSCRIPTION
-			if(isset($_POST['login']) && isset($_POST['password']) && isset($_POST['tel']) && isset($_POST['mail']))
+			if(1)
 			{
 				if(!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['tel']) && !empty($_POST['mail']))
 				{
 					include("configuration.php");
+					$mdp1=$_POST['password'];
+					$mdp2=$_POST['password_2'];
+					if($mdp1!=$mdp2)
+					{
+						echo "<p style='color:red;'>Les deux mots de passe doivent être identiques";
+					}
+					else
+					{
 					$connexion=connexion($_POST['password']);
 					$password_md5=md5($_POST['password']);
 					$sql="INSERT INTO utilisateurs(nom,tel,password,mail) VALUE('{$_POST['login']}','{$_POST['tel']}','{$password_md5}','{$_POST['mail']}')";
 					$requete=mysqli_query($connexion,$sql) or die("Ay problème requète!"+ mysql_error());
 					$i=0;
 					echo "Merci de votre inscription ".$_POST['login'];
+					}
 				}
 				else
 				{
@@ -156,7 +165,7 @@
 			}
 			else
 			{
-				echo "Ay problème !";
+				echo "Ay problème !!!!!";
 			}
 		?>
 	</body>
