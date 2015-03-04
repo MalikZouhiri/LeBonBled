@@ -33,7 +33,7 @@
 			$connexion=connexion();
 			$sql="SELECT id,nom,tel,mail FROM utilisateurs";
 			$requete=mysqli_query($connexion,$sql);
-			echo "<table><tr><td>Nom</td><td>Téléphone</td><td>Adresse mail</td></tr>";
+			echo "<table><tr><td style='background-color:gray;padding-right:100px;border-right:1px solid white;'>Nom</td><td style='border-right:1px solid white;background-color:gray;padding-right:100px;'>Téléphone</td><td style='background-color:gray;padding-right:100px;'>Adresse mail</td></tr>";
 			while($data=mysqli_fetch_array($requete))
 			{
 				echo "<tr><td>".$data[1]."</td><td>".$data[2]."</td><td>".$data[3]."</td><td><a href='liste_inscrit.php?id=".$data[0]."'><img src='Image/delete.png'/></a></tr>";
