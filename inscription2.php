@@ -31,6 +31,42 @@
 				margin-top: 60px;
 			}
 
+<<<<<<< HEAD
+	<head>
+		<title>Page d'inscription</title>
+	</head>
+	
+	<body>
+		<center>
+		<h1>Vous inscrire</h1>
+		<?php
+			$i=1;
+			if($i==1)
+			{
+		?>
+		<form action="" method="post">
+			<table>
+			<tr>
+				<th><input type="text" id="login" placeholder="Login"/></th>
+			</tr>
+			<tr>
+				<th><input type="password" id="password" placeholder="Password"/></th>
+			</tr>
+			<tr>
+				<th><input type="text" id="tel" placeholder="Telephone"/></th>
+			</tr>
+			<tr>
+				<th><input type="text" id="mail" placeholder="Email"/></th>
+			</tr>
+			<tr>
+				<th><input type="submit" id="Ok" /></th>
+			</tr>
+			</table>
+		</form>
+		<?php
+			}
+		?>
+=======
 			.centered-form .panel{
 				background: rgba(255, 255, 255, 0.8);
 				box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
@@ -54,34 +90,34 @@
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			                <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
+			                <input type="text" name="login" id="login" class="form-control input-sm" placeholder="Login"/>
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+			    						<input type="text" name="tel" id="tel" class="form-control input-sm" placeholder="Téléphone"/>
 			    					</div>
 			    				</div>
 			    			</div>
 
 			    			<div class="form-group">
-			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Adresse email"/>
 			    			</div>
 
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+			    						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password"/>
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
+			    						<input type="password" name="password_2" id="password_2" class="form-control input-sm" placeholder="Confirmer Password"/>
 			    					</div>
 			    				</div>
 			    			</div>
 			    			
-			    			<input type="submit" value="Register" class="btn btn-info btn-block">
+			    			<input type="submit" value="Register" class="btn btn-info btn-block"/>
 			    		
 			    		</form>
 			    	</div>
@@ -101,27 +137,27 @@
 		
 		<?php
 			//TRAITEMENT INSCRIPTION
-			if(isset($_POST['login']) && isset($_POST['password']) && isset($_POST['tel']) && isset($_POST['mail']) && isset($_POST['ok']))
+			if(isset($_POST['login']) && isset($_POST['password']) && isset($_POST['tel']) && isset($_POST['mail']))
 			{
 				if(!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['tel']) && !empty($_POST['mail']))
 				{
 					include("configuration.php");
-					$connexion=connexion();
-					$sql="SELECT COUNT(*) FROM utilisateur WHERE login=\"{$_POST['login']}\" and password=\"{$_POST['password']}\";";
-					$requete=mysqli_query($connexion,$sql);// or die("probleme!");
-					$result=mysqli_fetch_row($requete);
-					if($result[0]==1)
-					{
-						session_start();
-						$_SESSION['login']=$_POST['login'];
-						header("Location:home.php");
-						exit();
-					}
-
+					$connexion=connexion($_POST['password']);
+					$password_md5=md5($_POST['password']);
+					$sql="INSERT INTO utilisateurs(nom,tel,password,mail) VALUE('{$_POST['login']}','{$_POST['tel']}','{$password_md5}','{$_POST['mail']}')";
+					$requete=mysqli_query($connexion,$sql) or die("Ay problème requète!"+ mysql_error());
+					$i=0;
+					echo "Merci de votre inscription ".$_POST['login'];
+				}
+				else
+				{
+					echo "<p style='color:red;'>Tout les champs doivent être saisis";
 				}
 			}
-	
-
+			else
+			{
+				echo "Ay problème !";
+			}
 		?>
 	</body>
 </html>
