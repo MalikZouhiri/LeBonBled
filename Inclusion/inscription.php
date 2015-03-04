@@ -1,9 +1,3 @@
-﻿<?php
-	if(isset($_SESSION['login']))
-	{
-		header('Location:index.php');
-	}
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,9 +33,35 @@
     </head>
     
     
-    <body>
-<?php include("Inclusion/gestion.php"); ?>
-  
+    <body  >
+        
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+
+            </button> <a class="navbar-brand" href="#">LeBonBled</a>
+
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a class="" href="#">Accueil</a>
+                </li>
+                <li><a class="" href="recherche.php">Recherche</a>
+                </li>
+                <li><a class="" href="publier.php">Publier une annonce</a>
+                </li>
+                <li><a class="" href="inscription.php">Inscription</a>
+                </li>
+                <li><a class="" href="connexion.php">Connexion</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>
 <div class="container">
         <div class="row centered-form">
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
@@ -89,7 +109,8 @@
     		</div>
     	</div>
     </div>
-<!-- /.container -->        
+<!-- /.container -->
+        
         <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 
@@ -98,30 +119,6 @@
 
 
 <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
-		
-		<?php
-			//TRAITEMENT INSCRIPTION
-			if(isset($_POST['login']) && isset($_POST['password']) && isset($_POST['tel']) && isset($_POST['mail']) && isset($_POST['ok']))
-			{
-				if(!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['tel']) && !empty($_POST['mail']))
-				{
-					include("configuration.php");
-					$connexion=connexion();
-					$sql="SELECT COUNT(*) FROM utilisateur WHERE login=\"{$_POST['login']}\" and password=\"{$_POST['password']}\";";
-					$requete=mysqli_query($connexion,$sql);// or die("probleme!");
-					$result=mysqli_fetch_row($requete);
-					if($result[0]==1)
-					{
-						session_start();
-						$_SESSION['login']=$_POST['login'];
-						header("Location:home.php");
-						exit();
-					}
-
-				}
-			}
-	
-
-		?>
-	</body>
+        
+    </body>
 </html>
