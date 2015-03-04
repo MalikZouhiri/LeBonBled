@@ -21,9 +21,7 @@
 			padding-top: 50px;
 			}
 		</style>
-    </head>
-    
-    
+    </head>   
     <body  >
 <?php include("Inclusion/gestion.php"); ?>
 <div class="container">
@@ -33,13 +31,7 @@
 </div>
         
         <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-
         <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-
-
-<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
-        
+		<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>     
     </body>
 </html>
