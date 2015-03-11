@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php 
+	session_start();
+	if(!isset($_SESSION['login']))
+	{
+		header('Location:index.php'); 
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,7 +32,7 @@
 
     
     <body  >      
-<?php include("Inclusion/gestion.php");actif(0);?>
+<?php include("Inclusion/gestion.php"); actif(2);?>
 <div class="container">
     <div class="text-center">
          <h1 class="">Bienvenue sur Le Bon Bled </h1>
