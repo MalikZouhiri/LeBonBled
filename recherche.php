@@ -43,7 +43,7 @@
 			$requete=mysql_query($sql);
 			while($result=mysql_fetch_array($requete))
 			{
-				echo "<h2>".$result['titre']."\t".$result['prix']".</h2><br/>";
+				echo "<h2>".$result['titre']."\t".$result['prix']."</h2><br/>";
 				echo "<i>Posté le ".$result['date_publication']."par ".$result['proprietaire']."</i><br/><br/>";
 				echo '<img src="'.$result['photo'].'" width="200" height="200"/>';
 				
