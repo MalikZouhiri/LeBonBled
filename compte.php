@@ -37,7 +37,7 @@
 		$login=$_SESSION['login'];
 		$connexion=mysql_connect("localhost","root","");
 		$ok=mysql_select_db("test");
-		$requete="SELECT * FROM utilisateurs WHERE nom ='$login'";;
+		$requete="SELECT * FROM utilisateurs WHERE nom ='$login'";
 		$sql = mysql_query($requete) or die(mysql_error());
 		$result=mysql_fetch_assoc($sql);
 ?>
