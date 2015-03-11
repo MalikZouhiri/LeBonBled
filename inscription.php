@@ -3,6 +3,9 @@
 	{
 		header('Location:index.php');
 	}
+	else {
+
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -151,12 +154,16 @@
 					}
 					else
 					{
-					$connexion=connexion($_POST['password']);
-					$password_md5=md5($_POST['password']);
-					$sql="INSERT INTO utilisateurs(nom,tel,password,mail) VALUE('{$_POST['login']}','{$_POST['tel']}','{$password_md5}','{$_POST['mail']}')";
-					$requete=mysqli_query($connexion,$sql) or die("Ay problème requète!"+ mysql_error());
-					$i=0;
-					echo "<center>Merci de votre inscription ".$_POST['login']."</center>";
+						$connexion=connexion($_POST['password']);
+						$password_md5=md5($_POST['password']);
+						$sql="INSERT INTO utilisateurs(nom,tel,password,mail) VALUE('{$_POST['login']}','{$_POST['tel']}','{$password_md5}','{$_POST['mail']}')";
+						$requete=mysqli_query($connexion,$sql) or die("Ay problème requète!"+ mysql_error());
+						$i=0;
+						if($requete){
+							echo "<script type='text/javascript'>
+								document.location.replace('connexion.php');
+								</script>";
+						}
 					}
 				}
 				else
@@ -164,7 +171,6 @@
 					echo "<center><p style='color:red;'>Tout les champs doivent être saisis.</center>";
 				}
 			}
-			else
 		?>
 	 <?php include("Inclusion/footer.php"); ?>   
 	</body>
