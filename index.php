@@ -48,10 +48,6 @@
         </div>
         <div id="bandeau">
         <p>Publiez <strong>gratuitement</strong> votre annonce en 2 minutes</p>
-        <div class="field">
-        <button type="button" id="btnSubmit1" class="publishBtn">&Eacute;CRIRE L'ANNONCE</button>
-        <label for="choixFamille1" id="choixFamille1Error" class="error" style="display:none;">Sélectionnez une catégorie</label>
-        </div>
         </div>
         </section>
         <section id="sec2" class="grey firstSec" data-anchor="sec2">
