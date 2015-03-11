@@ -117,7 +117,7 @@ else
 				<label for="titre"> Titre de l'annonce : <input type="text" name="titre"/></label><br>
 				<label for="prix"> Prix : <input type="number" name="prix"/>€</label><br>
 				<label for="description"> Description de l'annonce :<br>
-					<input type="textarea" name="description"/></label><br>
+				<textarea rows="10" cols="50" name="description"></textarea></label><br>
 				<label for="image"><input type="file" name="photo"/> Formats acceptés : PNG, JPG, BMP</label><br>
 				<label for="envoyer"><input type="submit" value="Envoyer l'annonce" name="ok" class="btn btn-success"></label>
 			</form>
