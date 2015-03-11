@@ -1,9 +1,5 @@
 <?php 
 	session_start();
-	if(!isset($_SESSION['login']))
-	{
-		header('Location:index.php'); 
-	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,8 +45,8 @@
 				$result=mysqli_fetch_array($requete);
 				
 					
-				echo "<h2>".$result['titre'].$result['prix']."</h2><br/>";
-				echo "<i>Posté le ".$result['date_publication']."par ".$result['proprietaire']."</i><br/><br/>";
+				echo "<h2>".$result['titre']."\t".$result['prix']."&euro;</h2><br/>";
+				echo "<i>Posté le ".$result['date_publication']." par ".$result['proprietaire']."</i><br/><br/>";
 				echo '<img src="'.$result['photo'].'" width="200" height="200"/><br/><br/>';
 				echo $result['description'];
 			}

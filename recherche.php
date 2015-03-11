@@ -31,7 +31,7 @@
 <?php include("Inclusion/gestion.php"); ?>
 <div class="container">
     <div class="text-center">
-         <h1 class="">Bienvenue sur Le Bon Bled </h1>
+         <h1 class="">Annonces</h1>
 		 
 		 <?php
 			include ('configuration.php');
@@ -42,13 +42,21 @@
 			<div class="container">
 				<div class="row">
 		<?php
+				$i=0;
 					while($result=mysqli_fetch_array($requete))
 					{
+					if ($i==3)
+					{
+					echo "</div>";
+					echo "<div class='row'>";
+					$i=0;
+					}
 						echo "<div class=\"col-md-4\">";
-						echo "<h2>".$result['titre']."\t".$result['prix']."</h2><br/>";
-						echo "<i>Posté le ".$result['date_publication']."par ".$result['proprietaire']."</i><br/><br/>";
+						echo "<h2><a href='affichage.php?id=".$result['id']."'</a>".$result['titre']."<br>".$result['prix']."&euro;</h2><br/>";
+						echo "<i>Posté le ".$result['date_publication']." par ".$result['proprietaire']."</i><br/><br/>";
 						echo '<img src="'.$result['photo'].'" width="200" height="200"/>';
 						echo "</div>";
+						$i = $i+1;
 						
 					}		
 		?>
