@@ -20,8 +20,14 @@ echo'
                 </li>';
 				if(isset($_SESSION['login']))
 				{
-					echo'<li><a class="" href="compte.php">Mon Compte</a></li>
-					<li><a class="" href="deconexion.php">Deconnexion</a></li>';
+					if($_SESSION['login']=='admin'){
+                        echo'<li><a class="" href="liste_inscrit.php">Panel Admin</a></li>
+                        <li><a class="" href="deconexion.php">Deconnexion</a></li>';
+                    }
+                    else{
+                        echo'<li><a class="" href="compte.php">Mon Compte</a></li>
+                        <li><a class="" href="deconexion.php">Deconnexion</a></li>';
+                    }
 				}
 				else
 				{
