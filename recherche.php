@@ -28,7 +28,7 @@
 
     
     <body  >      
-<?php include("Inclusion/gestion.php"); actif(2);?>
+<?php include("Inclusion/gestion.php"); ?>
 <div class="container">
     <div class="text-center">
          <h1 class="">Bienvenue sur Le Bon Bled </h1>

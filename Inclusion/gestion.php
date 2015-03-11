@@ -1,7 +1,4 @@
 <?php
-
-function actif($i)
-{
 echo'
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -9,21 +6,12 @@ echo'
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span>
  <span class="icon-bar"></span>
  <span class="icon-bar"></span>
-
             </button> <a class="navbar-brand" href="index.php">LeBonBled</a>
-
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">';
-			if($i==0)
-			{
-				echo '<li class="active"><a class="" href="index.php">Accueil</a>';
-			}
-			else{
-				echo '<li><a class="" href="index.php">Accueil</a>';
-			}
-			echo'
-			 </li>
+            <ul class="nav navbar-nav">
+                <li class=""><a class="" href="index.php">Accueil</a>
+                </li>
                 <li><a class="" href="recherche.php">Recherche</a>
                 </li>
                 <li><a class="" href="publier.php">Publier une annonce</a>
@@ -50,5 +38,4 @@ echo'
         <!--/.nav-collapse -->
     </div>
 </div>';
-}
 ?>
