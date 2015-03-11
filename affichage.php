@@ -35,7 +35,26 @@
 <?php include("Inclusion/gestion.php"); ?>
 <div class="container">
     <div class="text-center">
-         <h1 class="">Bienvenue sur Le Bon Bled </h1>
+         <h1 class="">Annonces </h1>
+		 	 <?php
+			include ('configuration.php');
+			$connexion = connexion();
+			
+
+			if(isset($_GET['id']))
+			{
+				$sql="SELECT * FROM annonce WHERE id={$_GET['id']}";
+				$requete=mysqli_query($connexion, $sql);
+			
+				$result=mysqli_fetch_array($requete);
+				
+					
+				echo "<h2>".$result['titre'].$result['prix']."</h2><br/>";
+				echo "<i>Posté le ".$result['date_publication']."par ".$result['proprietaire']."</i><br/><br/>";
+				echo '<img src="'.$result['photo'].'" width="200" height="200"/><br/><br/>';
+				echo $result['description'];
+			}
+			?>
     </div>
 </div>
 <!-- /.container -->
