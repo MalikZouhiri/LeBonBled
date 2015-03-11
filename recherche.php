@@ -38,14 +38,22 @@
 			$connexion = connexion();
 			$sql="SELECT * FROM annonce";
 			$requete=mysqli_query($connexion, $sql);
-			while($result=mysqli_fetch_array($requete))
-			{
-				echo "<h2>".$result['titre']."\t".$result['prix']."</h2><br/>";
-				echo "<i>Posté le ".$result['date_publication']."par ".$result['proprietaire']."</i><br/><br/>";
-				echo '<img src="'.$result['photo'].'" width="200" height="200"/>';
-				
-			}		
 		?>
+			<div class="container">
+				<div class="row">
+		<?php
+					while($result=mysqli_fetch_array($requete))
+					{
+						echo "<div class=\"col-md-4\">";
+						echo "<h2>".$result['titre']."\t".$result['prix']."</h2><br/>";
+						echo "<i>Posté le ".$result['date_publication']."par ".$result['proprietaire']."</i><br/><br/>";
+						echo '<img src="'.$result['photo'].'" width="200" height="200"/>';
+						echo "</div>";
+						
+					}		
+		?>
+			</div>
+				</div>
     </div>
 </div>
 <!-- /.container -->

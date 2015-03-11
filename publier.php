@@ -71,6 +71,7 @@ else
 		
 		$strarray = explode("/",$_FILES['photo']['type']);
 		$str = $strarray[1];
+		print_r($str);
 		$adr = "Image/$bada.$str";
 		
 		$upload = upload('photo',$adr,FALSE,array('png','bmp','jpg','jpeg'));
