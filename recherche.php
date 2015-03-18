@@ -31,12 +31,27 @@
 <?php include("Inclusion/gestion.php"); ?>
 <div class="container">
     <div class="text-center">
-         <h1 class="">Annonces</h1>
+         <h1 class="">Annonces</h1><br/><br/>
+
 		 
+		 <div class="text-center">
+		 <form action="" method="post">
+			<input type="text" placeholder="Entrez le titre" name="titre" />
+			<input type="submit" value="Ok" />
+		 
+		 </form>
+		 </div>	
+
 		 <?php
 			include ('configuration.php');
+			
 			$connexion = connexion();
 			$sql="SELECT * FROM annonce";
+			
+			if(isset($_POST['titre']))
+			{
+				$sql.=" WHERE titre LIKE '%".$_POST['titre']."%';";
+			}
 			$requete=mysqli_query($connexion, $sql);
 		?>
 			<div class="container">
