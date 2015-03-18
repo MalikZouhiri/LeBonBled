@@ -28,12 +28,6 @@
             body {  padding-top: 50px;
 			}
         </style>
-        <script type="text/javascript">
-            function confirmation() {
-            if (confirm("Supprimer votre compte ?")) {
-            }
-        }  
-        </script>
     </head>
 
     
@@ -47,8 +41,10 @@
         $nom= mysql_real_escape_string($_GET['cp']);
         $nom=trim($nom);
         $connexion2=connexion();
-        $sql2="DELETE FROM utilisateurs WHERE nom=".$nom;
+        $sql2="DELETE FROM utilisateurs WHERE nom='".$nom."'";
         $requete2=mysqli_query($connexion2,$sql2);
+        session_unset();
+        session_destroy();
         header('Location:index.php');
         
     }
@@ -97,7 +93,7 @@
                 <div class="panel-heading">Utilisateur : <?php echo $result['nom'] ?></div>
                 <div class="panel-body"> Téléphone : <?php echo $result['tel'] ?> <br />
 				Adresse E-Mail : <?php echo $result['mail'] ?> <br />
-                Supprimer votre compte - <a onclick='confirmation()' href='compte.php?delete=ok&cp=<?php echo $result['nom'];?>'><img width="50" height="50" title='Supprimer votre compte' src='Image/compte.png'/></a>
+                Supprimer votre compte - <a href='compte.php?delete=ok&cp=<?php echo $result['nom'];?>'><img width="50" height="50" title='Supprimer votre compte' src='Image/compte.png'/></a>
 
 				</div>
                 <br/><br />
