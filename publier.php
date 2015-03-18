@@ -61,7 +61,7 @@ else
 	{
 		$titre = $_POST['titre'];
 		$prix = $_POST['prix'];
-		$description = $_POST['description'];
+		$description = mysql_real_escape_string($_POST['description']);
 		$login = $_SESSION['login'];
 		
 		$sql = "select max(id) from annonce";
