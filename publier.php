@@ -112,16 +112,31 @@ else
 			<?php
 				include("Inclusion/gestion.php");
 			?>
-			
-			<form action="" method="POST" enctype="multipart/form-data">
-				<label for="titre"> Titre de l'annonce : <input type="text" name="titre"/></label><br>
-				<label for="prix"> Prix : <input type="number" name="prix"/>€</label><br>
-				<label for="description"> Description de l'annonce :<br>
-					<textarea rows ="10" cols="50" name="description"></textarea></label><br>
-				<label for="image"><input type="file" name="photo"/> Formats acceptés : PNG, JPG, BMP</label><br>
-				<label for="envoyer"><input type="submit" value="Envoyer l'annonce" name="ok" class="btn btn-success"></label>
-			</form>
-			
+			<div class="container">
+			<h2>Poster une annonce</h2>
+  <form action="" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="titre">Titre de l'annonce :</label>
+      <input type="titre" class="form-control" id="titre" name="titre" placeholder="Titre">
+    </div>
+    <div class="form-group">
+      <label for="prix">Prix :</label>
+      <input type="prix" class="form-control" id="prix" name="prix" placeholder="Prix">
+    </div>
+	<div class="form-group">
+      <label for="description">Description de l'annonce </label>
+      <textarea type="description" class="form-control" id="description" name="description" placeholder="Description"> </textarea>
+    </div>
+	<div class="form-group">
+      <label for="image">Formats acceptés : PNG, JPG, BMP </label>
+      <input type="file" class="" id="photo" name="photo" />
+    </div>
+
+    <input type="submit" class="btn btn-success" name="ok" value="Envoyer l'annonce" />
+  </form>
+</div>
+
+
 			<?php
 				include("Inclusion/footer.php");
 			?>
