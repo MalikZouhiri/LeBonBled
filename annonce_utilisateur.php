@@ -26,16 +26,47 @@
     
     <body>      
 <?php include("Inclusion/gestion.php"); ?>
-<?php include("Inclusion/footer.php"); ?>   
+<?php include("Inclusion/footer.php");
+      include("configuration.php");
+?>   
+<?php
+    if(isset($_GET['nom']) && isset($_GET['action']) && isset($_GET['id']) )
+    {
+        $nom= mysql_real_escape_string($_GET['nom']);
+        $nom=trim($nom);
+        if($_GET['action']=="pause"){
+            $connexion2=connexion();
+            $id= mysql_real_escape_string($_GET['id']);
+            $id=trim($id);
+            $sql2="UPDATE annonce SET active = '0' WHERE id=".$id;
+            $requete2=mysqli_query($connexion2,$sql2);
+            header("Refresh:0; url=annonce_utilisateur.php?nom=".$nom);        }       
+        if($_GET['action']=="resume"){
+            $connexion2=connexion();
+            $id= mysql_real_escape_string($_GET['id']);
+            $id=trim($id);
+            $sql2="UPDATE annonce SET active = '1' WHERE id=".$id;
+            $requete2=mysqli_query($connexion2,$sql2);
+            header("Refresh:0; url=annonce_utilisateur.php?nom=".$nom);        }       
+        if($_GET['action']=="supp"){
+            $connexion2=connexion();
+            $id= mysql_real_escape_string($_GET['id']);
+            $id=trim($id);
+            $sql2="DELETE FROM annonce WHERE id=".$id;
+            $requete2=mysqli_query($connexion2,$sql2);
+            header("Refresh:0; url=annonce_utilisateur.php?nom=".$nom);        }       
+    }
+?>  
 <div class="container">
     <div class="text-center">
-         <h1 class="">Annonces de <?php echo $_GET['nom']; ?></h1>
-		 <center>
-		 <?php
-			include("configuration.php");
-			$connexion=connexion();
+         <?php 
             $nom= mysql_real_escape_string($_GET['nom']);
             $nom=trim($nom);
+         ?>
+         <h1 class="">Annonces de <?php echo $nom; ?></h1>
+		 <center>
+		 <?php
+			$connexion=connexion();
 			$sql="SELECT * FROM annonce where proprietaire = '".$nom."'";
 			$requete=mysqli_query($connexion,$sql);
 			echo "<br /> <br />
@@ -54,35 +85,20 @@
                      <td>".$data[1]."</td>
                      <td>".$data[3]."</td>
                      <td>".$data[4]."</td>
-                     <td align='center'><a href='annonce_utilisateur.php?action=pause&id=".$data[0]."'><img title='Desactiver annonce' src='Image/pause.gif'/></a>
-                     <a href='annonce_utilisateur.php?action=resume&id=".$data[0]."'><img title='Activer l'annonce src='Image/play.png'/></a></tr>";
+                     <td align='center'>";
+                     if($data[7]==1){
+                        echo "<a href='annonce_utilisateur.php?nom=".$nom."&action=pause&id=".$data[0]."'><img title='Desactiver annonce' src='Image/pause.gif'/></a>                        
+                     ";}
+                     if($data[7]==0){
+                        echo "<a href='annonce_utilisateur.php?nom=".$nom."&action=resume&id=".$data[0]."'><img title='Activer l'annonce src='Image/play.png'/></a>
+                     ";}
+                     echo "<a href='annonce_utilisateur.php?nom=".$nom."&action=supp&id=".$data[0]."'><img title='Supprimer annonce' src='Image/delete.png'/></a></tr>";
 			}
 			echo "</table>";
 		 ?>
 		</center>
     </div>
-</div>
-<?php
-	if(isset($_GET['action']) && isset($_GET['id']) )
-	{
-		if($_GET['action']=="pause"){
-            $connexion2=connexion();
-            $id= mysql_real_escape_string($_GET['id']);
-            $id=trim($id);
-            $sql2="UPDATE annonce SET active = '0' WHERE id=".$id;
-            $requete2=mysqli_query($connexion2,$sql2);
-            header('Location:annonce_utilisateur.php?nom='.$nom);   
-        }
-        if($_GET['action']=="resume"){
-            $connexion2=connexion();
-            $id= mysql_real_escape_string($_GET['id']);
-            $id=trim($id);
-            $sql2="UPDATE annonce SET active = '1' WHERE id=".$id;
-            $requete2=mysqli_query($connexion2,$sql2);
-            header('Location:annonce_utilisateur.php?nom='.$nom);   
-        }	
-	}
-?>     
+</div>   
 <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>      
