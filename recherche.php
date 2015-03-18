@@ -51,13 +51,15 @@
 					echo "<div class='row'>";
 					$i=0;
 					}
-						echo "<div class=\"col-md-4\">";
-						echo "<h2><a href='affichage.php?id=".$result['id']."'</a>".$result['titre']."<br>".$result['prix']."&euro;</h2><br/>";
-						echo "<i>Posté le ".$result['date_publication']." par ".$result['proprietaire']."</i><br/><br/>";
-						echo '<img src="'.$result['photo'].'" width="200" height="200"/>';
-						echo "</div>";
-						$i = $i+1;
-						
+						if ($result['active']==1)
+						{
+							echo "<div class=\"col-md-4\">";
+							echo "<h2><a href='affichage.php?id=".$result['id']."'</a>".$result['titre']."<br>".$result['prix']."&euro;</h2><br/>";
+							echo "<i>Posté le ".$result['date_publication']." par ".$result['proprietaire']."</i><br/><br/>";
+							echo '<img src="'.$result['photo'].'" width="200" height="200"/>';
+							echo "</div>";
+							$i = $i+1;
+						}
 					}		
 		?>
 			</div>
